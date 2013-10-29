@@ -1,14 +1,22 @@
 <?php
 function artist_sets($artist_id, $update = true, $hyperlinks = true, $encode_utf8 = false) {
    error_reporting(E_ALL ^ E_NOTICE);
+   $date = date('Y-m-d+h:i:s', time());
    // Get the data from Set.fm JSON API
-   
-   $json = wp_remote_get("http://www.set.fm/api/livesets.json?artist_id=$artist_id");
-   if ( is_wp_error($json) ) {
+   $json = wp_remote_get("http://www.set.fm/api/livesets.json?artist_id=$artist_id&end_datetime_boundary=$date");
+   $jsonFuture = wp_remote_get("http://www.set.fm/api/livesets.json?artist_id=$artist_id&start_datetime_boundary=$date");
+
+   if ( is_wp_error($json) or is_wp_error($jsonFuture)) {
      echo 'wp error';
    }
    // Decode JSON into array
-   $sets = json_decode($json['body'], true);
+   $past_sets = json_decode($json['body'], true);
+   $future_sets = json_decode($jsonFuture['body'], true);
+   $numSets = 3;
+   $numPastSets = $past_sets.size;
+   if($numPastSets < "3")
+     $numSets = 5 - $numPastSets + 1;
+   $sets = array_slice($future_sets,$future_sets.size-$numSets,$future_sets.size-1) + $past_sets;
    echo '<h3 class="widget-title">Live Recordings</h3>';
    //Create unordered list
    echo '<ul>';
@@ -31,15 +39,8 @@ function artist_sets($artist_id, $update = true, $hyperlinks = true, $encode_utf
       
        if($set['venue'] != "")
          $venue = $set['venue']['name'];
-
-       //echo '<li><span6><img src="http://lorempixum.com/100/100/nature/2";/>'. $date;
-       /*echo '<li><span4>'. $date . '</span4><span6 float:center>';
-       if($venue != "")
-       {
-         echo '<b>' . $venue . '</b>';
-       }
-       echo "</span6><span4 float:right><a href=$url target='_blank' class='btn btn-primary'>".'$' . number_format($price/100, 2, '.', '') ."</a></span4>";
-       echo '</li><hr>';*/
+       else
+         $venue = "Uknown Venue";
        echo '<li><span7>';
        if($venue != "")
        {
@@ -54,8 +55,7 @@ function artist_sets($artist_id, $update = true, $hyperlinks = true, $encode_utf
    }
    //Close list
    echo '</ul>';
-   echo '<b><a href="">Set.fm</a></b>';
-   //echo '</br><img src="http://set.fm/assets/logos/set-fm-logo-july-24.png" width="100"/>';
+   echo '<b><a href="htttp://www.set.fm">Set.fm</a></b>';
  }
 ?>
  

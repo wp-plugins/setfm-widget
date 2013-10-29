@@ -3,7 +3,7 @@
     <input type="text" id="<?php echo $this->get_field_id('setfm_user'); ?>" name="<?php echo $this->get_field_name('setfm_user'); ?>"/></br>
     <label for="<?php echo $this->get_field_id('setfm_pass'); ?>">Password:</label></br>
     <input type="password" id="<?php echo $this->get_field_id('setfm_pass'); ?>" name="<?php echo $this->get_field_name('setfm_pass'); ?>"/></br>
-    <input type="button" value="Login" id="testbutton"/>
+    <input type="submit" value="Login" id="<?php echo $this->get_field_id('setfm_user');?>_button"/>
 </div>
 
 <div class="wrapper">  
@@ -23,7 +23,7 @@ var user = "#<?php echo $this->get_field_id('setfm_user'); ?>";
 var pass = "#<?php echo $this->get_field_id('setfm_pass'); ?>";
 
 jQuery(document).ready(function(){
-  jQuery(document).on('click', "#testbutton", function(e){
+  jQuery(document).on('click', "#<?php echo $this->get_field_id('setfm_user');?>_button", function(e){
     e.preventDefault();
     validate(jQuery(user).val(), jQuery(pass).val());
   });

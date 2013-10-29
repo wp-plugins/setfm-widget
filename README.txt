@@ -1,7 +1,7 @@
-=== Set.fm ===
+=== Set.fm Widget ===
 
 Contributors: hugomtz
-Donate link: http://example.com/
+Donate link: http://www.set.fm
 Tags: widget, boilerplate
 Requires at least: 3.3.1
 Tested up to: 3.3.1
@@ -32,11 +32,20 @@ Answer to foo bar dilemma.
 
 == Screenshots ==
 
+1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
+the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1.png` (or jpg, jpeg, gif)
+2. This is the second screen shot
 
 == Changelog ==
+
+= 1.0 =
+* Fixed bug with login.
+* Now displaying a combination of most recent and future sets.
 
 = 0.5 =
 * Lists the 5 most recent sets
 
 == Upgrade Notice ==
 
+= 1.0 =
+* This version fixes bug with logging into Set.fm site.
