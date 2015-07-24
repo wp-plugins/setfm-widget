@@ -4,7 +4,7 @@ Contributors: hugomtz
 Donate link: http://www.set.fm
 Tags: widget, boilerplate
 Requires at least: 3.3.1
-Tested up to: 3.3.1
+Tested up to: 4.2.3
 Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,13 +22,6 @@ Artists registered on Set.fm can embed the Set.fm widget on their website to sel
 
 == Frequently Asked Questions ==
 
-= A question that someone might have? =
-
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
 
 == Screenshots ==
 
@@ -38,14 +31,6 @@ the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1
 
 == Changelog ==
 
-= 1.0 =
-* Fixed bug with login.
-* Now displaying a combination of most recent and future sets.
-
-= 0.5 =
-* Lists the 5 most recent sets
-
-== Upgrade Notice ==
-
-= 1.0 =
-* This version fixes bug with logging into Set.fm site.
+= 2.0 =
+* Updated UI
+* Added an a settings page

@@ -2,8 +2,8 @@
 /*
 Plugin Name: Set.fm
 Plugin URI: http://www.set.fm
-Description: TODO
-Version: 1.0
+Description: Displays your Set.fm sets.
+Version: 2.0
 Author: Hugo Martinez
 Author URI: http://hugo443.wordpress.com
 Author Email: hugo@set.fm
@@ -58,7 +58,7 @@ class Setfm extends WP_Widget {
     
 	  $widget_opts = array (  
     'classname' => PLUGIN_NAME,   
-    'description' => __('A simple WordPress widget.', PLUGIN_LOCALE)  
+    'description' => __('This widget displays your Set.fm sets.', PLUGIN_LOCALE)  
      );    
           
 		$this->WP_Widget(PLUGIN_SLUG, __(PLUGIN_NAME, PLUGIN_LOCALE), $widget_opts);  
@@ -86,8 +86,8 @@ class Setfm extends WP_Widget {
 		echo $before_widget;
       
 		include( plugin_dir_path( __FILE__ ) . '/views/widget.php' );
-    //$artist_slug = $instance['artist_slug'];
-    artist_sets(get_option('artist_id'), true, true, false);
+    	//$artist_slug = $instance['artist_slug'];
+    	artist_sets(get_option('artist_id'), true, true, false);
 
 		echo $after_widget;
 
@@ -120,8 +120,8 @@ class Setfm extends WP_Widget {
       array('artist_slug' => '')
     );
     $artist_slug = strip_tags($new_instance['artist_slug']);
-		// Display the admin form
-		include( plugin_dir_path(__FILE__) . '/views/admin.php' );
+	// Display the admin form
+	include( plugin_dir_path(__FILE__) . '/views/admin.php' );
 
 	} // end form
 
@@ -244,4 +244,22 @@ class Setfm extends WP_Widget {
 
 // TODO:	Remember to change 'Widget_Name' to match the class name definition
 add_action( 'widgets_init', create_function( '', 'register_widget("Setfm");' ) );
+add_action('admin_menu', 'admin_init');
+add_action( 'admin_enqueue_scripts', 'add_color_picker' );
+function add_color_picker( $hook ) {
+ 
+    if( is_admin() ) { 
+        // Add the color picker css file       
+        wp_enqueue_style( 'wp-color-picker' );          
+        // Include our custom jQuery file with WordPress Color Picker dependency
+        wp_enqueue_script( 'custom-script-handle', plugins_url( '/js/dashboard.js', __FILE__ ), array( 'wp-color-picker' ), false, true ); 
+    }
+}
+function admin_init(){
+  include( plugin_dir_path( __FILE__ ) . '/views/dashboard.php' );
+  add_action( 'admin_init', 'register_page_options' );
+  add_options_page( 'Set.fm Admin Page', 'Artist Dashboard', 'manage_options','setfm-plugin', 'dashboard_init' );    
+  //add_action( 'admin_options', array( &$this, 'register_page_options') );
+     
+}
 ?>
