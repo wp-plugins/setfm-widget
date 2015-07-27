@@ -9,10 +9,11 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The Set.fm WordPress Widget allows artists to sell their live recordings via set.fm.
+The Set.fm Wordpress Widget enables you to display your most recent set or sets from your Wordpress sidebar.  
+
 == Description ==
 
-Artists registered on Set.fm can embed the Set.fm widget on their website to sell their live recordings. Simply log into the widget and select your artist from the admin menu. 
+The Set.fm Wordpress Widget enables you to display your most recent set or sets from your Wordpress sidebar.  
 
 == Installation ==
 
