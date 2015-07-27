@@ -2,8 +2,8 @@
 /*
 Plugin Name: Set.fm
 Plugin URI: http://www.set.fm
-Description: Displays your Set.fm sets.
-Version: 2.0
+Description: The Set.fm Wordpress Widget enables you to display your most recent set or sets from your Wordpress sidebar.  
+Version: 2.2
 Author: Hugo Martinez
 Author URI: http://hugo443.wordpress.com
 Author Email: hugo@set.fm
@@ -58,7 +58,7 @@ class Setfm extends WP_Widget {
     
 	  $widget_opts = array (  
     'classname' => PLUGIN_NAME,   
-    'description' => __('This widget displays your Set.fm sets.', PLUGIN_LOCALE)  
+    'description' => __('The Set.fm Wordpress Widget enables you to display your most recent set or sets from your Wordpress sidebar.  ', PLUGIN_LOCALE)  
      );    
           
 		$this->WP_Widget(PLUGIN_SLUG, __(PLUGIN_NAME, PLUGIN_LOCALE), $widget_opts);  
@@ -258,7 +258,7 @@ function add_color_picker( $hook ) {
 function admin_init(){
   include( plugin_dir_path( __FILE__ ) . '/views/dashboard.php' );
   add_action( 'admin_init', 'register_page_options' );
-  add_options_page( 'Set.fm Admin Page', 'Artist Dashboard', 'manage_options','setfm-plugin', 'dashboard_init' );    
+  add_options_page( 'Set.fm Admin Page', 'Set.fm Settings', 'manage_options','setfm-plugin', 'dashboard_init' );    
   //add_action( 'admin_options', array( &$this, 'register_page_options') );
      
 }
