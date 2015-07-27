@@ -3,7 +3,7 @@
 Plugin Name: Set.fm
 Plugin URI: http://www.set.fm
 Description: Displays your Set.fm sets.
-Version: 2.0
+Version: 2.1
 Author: Hugo Martinez
 Author URI: http://hugo443.wordpress.com
 Author Email: hugo@set.fm
