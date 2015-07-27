@@ -8,6 +8,17 @@ function dashboard_init(){
 
 function display_page() { 
     ?>
+    <p>
+    <b>Getting Started</b>
+    <p>
+    The Set.fm widget must first be placed in a widget area.
+    Go to "appearance > widgets" and add the Set.fm widget to your sidebar.
+    Once you've dropped in the Set.fm widget you will be presented with a log-in.
+    Enter your Set.fm user email and password to connect your account.
+    Next choose the Artist from the dropdown; you may only have one Artist in your account.
+    <p>
+    Now edit the widget display options from "Settings > Set.fm Settings" in your Dashboard Sidebar.
+
     <div class="wrap">             
         <form method="post" action="options.php">             
 	        <?php 
