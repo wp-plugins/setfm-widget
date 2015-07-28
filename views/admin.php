@@ -1,9 +1,9 @@
 <div id="myForm">
-    <label for="<?php echo $this->get_field_id('setfm_user'); ?>">Username:</label></br>
+    <label for="<?php echo $this->get_field_id('setfm_user'); ?>">Email:</label></br>
     <input type="text" id="<?php echo $this->get_field_id('setfm_user'); ?>" name="<?php echo $this->get_field_name('setfm_user'); ?>"/></br>
     <label for="<?php echo $this->get_field_id('setfm_pass'); ?>">Password:</label></br>
     <input type="password" id="<?php echo $this->get_field_id('setfm_pass'); ?>" name="<?php echo $this->get_field_name('setfm_pass'); ?>"/></br>
-    <input type="submit" value="Login" id="<?php echo $this->get_field_id('setfm_user');?>_button"/>
+    <input type="submit" value="Login" class="button button-primary" id="<?php echo $this->get_field_id('setfm_user');?>_button"/>
 </div>
 
 <div class="wrapper">  
@@ -58,7 +58,7 @@ jQuery(document).ready(function(){
     jQuery('#<?php echo $this->get_field_id("artist_slug");?>').show(); 
     for(var i=0; i < items.length; i++){
       var obj = items[i];
-      jQuery("#<?php echo $this->get_field_id('artist_slug'); ?>").append('<option value="' + obj.id + '">'+ obj.name + '</option>');        
+      jQuery("#<?php echo $this->get_field_id('artist_slug'); ?>").append('<option value="' + obj.id + '"name="'+ obj.name+'">'+ obj.name + '</option>');        
     }    
   }
 });

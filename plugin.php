@@ -2,8 +2,8 @@
 /*
 Plugin Name: Set.fm
 Plugin URI: http://www.set.fm
-Description: Displays your Set.fm sets.
-Version: 2.0
+Description: The Set.fm Wordpress Widget enables you to display your most recent set or sets from your Wordpress sidebar.  
+Version: 2.3
 Author: Hugo Martinez
 Author URI: http://hugo443.wordpress.com
 Author Email: hugo@set.fm
@@ -45,7 +45,7 @@ class Setfm extends WP_Widget {
 	   // Define constants used throughout the plugin  
 	   //$this--->init_plugin_constants();  
     if(!defined('PLUGIN_LOCALE')) { 
-      define('PLUGIN_LOCALE', 'Setfm-locale'); 
+      define('PLUGIN_LOCALE', 'setfm-widget-locale'); 
     } // end if 
  
     if(!defined('PLUGIN_NAME')) { 
@@ -53,12 +53,12 @@ class Setfm extends WP_Widget {
     } // end if 
  
     if(!defined('PLUGIN_SLUG')) { 
-      define('PLUGIN_SLUG', 'Setfm'); 
+      define('PLUGIN_SLUG', 'setfm-widget'); 
     } // end if 
     
 	  $widget_opts = array (  
     'classname' => PLUGIN_NAME,   
-    'description' => __('This widget displays your Set.fm sets.', PLUGIN_LOCALE)  
+    'description' => __('The Set.fm Wordpress Widget enables you to display your most recent set or sets from your Wordpress sidebar.  ', PLUGIN_LOCALE)  
      );    
           
 		$this->WP_Widget(PLUGIN_SLUG, __(PLUGIN_NAME, PLUGIN_LOCALE), $widget_opts);  
@@ -135,7 +135,7 @@ class Setfm extends WP_Widget {
 	public function widget_textdomain() {
 
 		// TODO be sure to change 'widget-name' to the name of *your* plugin
-		load_plugin_textdomain( 'Setfm-locale', false, plugin_dir_path( __FILE__ ) . '/lang/' );
+		load_plugin_textdomain( PLUGIN_SLUG .'-locale', false, plugin_dir_path( __FILE__ ) . '/lang/' );
 
 	} // end widget_textdomain
 
@@ -163,7 +163,7 @@ class Setfm extends WP_Widget {
 	public function register_admin_styles() {
 
 		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_style( 'Setfm-admin-styles', plugins_url( 'Setfm/css/admin.css' ) );
+		wp_enqueue_style(  PLUGIN_SLUG .'-admin-styles', plugins_url( PLUGIN_SLUG .'/css/admin.css' ) );
 
 	} // end register_admin_styles
 
@@ -173,7 +173,7 @@ class Setfm extends WP_Widget {
 	public function register_admin_scripts() {
 
 		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_script( 'Setfm-admin-script', plugins_url( 'Setfm/js/admin.js' ), array('jquery') );
+		wp_enqueue_script(  PLUGIN_SLUG .'-admin-script', plugins_url( PLUGIN_SLUG .'/js/admin.js' ), array('jquery') );
 
 	} // end register_admin_scripts
 
@@ -183,7 +183,7 @@ class Setfm extends WP_Widget {
 	public function register_widget_styles() {
 
 		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_style( 'Setfm-widget-styles', plugins_url( 'Setfm/css/widget.css' ) );
+		wp_enqueue_style(  PLUGIN_SLUG .'-widget-styles', plugins_url( PLUGIN_SLUG .'/css/widget.css' ) );
 
 	} // end register_widget_styles
 
@@ -193,7 +193,7 @@ class Setfm extends WP_Widget {
 	public function register_widget_scripts() {
 
 		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_script( 'Setfm-script', plugins_url( 'Setfm/js/widget.js' ), array('jquery') );
+		wp_enqueue_script(  PLUGIN_SLUG .'-widget-script', plugins_url( PLUGIN_SLUG .'/js/widget.js' ), array('jquery') );
 
 	} // end register_widget_scripts
 	
@@ -258,7 +258,7 @@ function add_color_picker( $hook ) {
 function admin_init(){
   include( plugin_dir_path( __FILE__ ) . '/views/dashboard.php' );
   add_action( 'admin_init', 'register_page_options' );
-  add_options_page( 'Set.fm Admin Page', 'Artist Dashboard', 'manage_options','setfm-plugin', 'dashboard_init' );    
+  add_options_page( 'Set.fm Admin Page', 'Set.fm Settings', 'manage_options','setfm-plugin', 'dashboard_init' );    
   //add_action( 'admin_options', array( &$this, 'register_page_options') );
      
 }
