@@ -32,6 +32,6 @@ the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1
 
 == Changelog ==
 
-= 2.0 =
-* Updated UI
-* Added an a settings page
+= 2.3 =
+* Fixed path names
+* critical bug fixes

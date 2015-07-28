@@ -3,7 +3,7 @@
 Plugin Name: Set.fm
 Plugin URI: http://www.set.fm
 Description: The Set.fm Wordpress Widget enables you to display your most recent set or sets from your Wordpress sidebar.  
-Version: 2.2
+Version: 2.3
 Author: Hugo Martinez
 Author URI: http://hugo443.wordpress.com
 Author Email: hugo@set.fm
